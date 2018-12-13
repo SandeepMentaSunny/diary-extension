@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diary</title>
+    <style>
+        body{
+            background: #424242;
+        }
+        .container {
+            width: 700px;
+            margin: 0 auto;
+            display: table;
+        }
+        .title{
+            float: left;
+        }
+        .time{
+            float: right;
+            margin-right: 25px;
+            margin-top: 15px;
+        }
+        h1{
+            color: #fff;
+        }
+        form{
+            margin: 0 auto;
+            display: table;
+        }
+        .group {
+            position: relative;
+            margin: 15px 0;
+        }
+        input, textarea {
+            background: none;
+            color: #c6c6c6;
+            font-size: 18px;
+            padding: 10px 10px 10px 5px;
+            display: block;
+            width: 600px;
+            border: none;
+            border-radius: 0;
+            border-bottom: 1px solid #c6c6c6;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            
+        }
+        input:focus ~ label, input:valid ~ label, textarea:focus ~ label, textarea:valid ~ label {
+            top: -14px;
+            font-size: 12px;
+            color: #2196F3;
+        }
+        input:focus ~ .bar:before, textarea:focus ~ .bar:before {
+            width: 320px;
+        }
+        label {
+            color: #c6c6c6;
+            font-size: 16px;
+            font-weight: normal;
+            position: absolute;
+            pointer-events: none;
+            left: 5px;
+            top: 10px;
+            transition: 300ms ease all;
+        }
+        .bar {
+            position: relative;
+            display: block;
+            width: 320px;
+        }
+        .bar:before {
+            content: '';
+            height: 2px;
+            width: 0px;
+            bottom: 0px;
+            position: absolute;
+            background: #2196F3;
+            transition: 300ms ease all;
+            left: 0%;
+        }
+        .btn-box{
+            margin: 0 auto;
+            display: table;
+        }
+        .btn {
+            background: #fff;
+            color: #959595;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-decoration: none;
+            outline: none;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .btn:hover {
+            color: #8b8b8b;
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18), 0 5px 5px rgba(0, 0, 0, 0.12);
+        }
+        .btn.btn-link {
+            background: #2196F3;
+            color: #d3eafd;
+        }
+        .btn.btn-link:hover {
+            background: #0d8aee;
+            color: #deeffd;
+        }
+        .btn.btn-submit {
+            background: #2196F3;
+            color: #bce0fb;
+        }
+        .btn.btn-submit:hover {
+            background: #0d8aee;
+            color: #deeffd;
+        }
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            float: left;
+            font-size: 24px;
+            font-weight: 700;
+            margin-left: 10px;
+            color: #fff;
+        }
+        ul li:before{
+            content: ":";
+            color: #fff;
+            position: relative;
+            left: -5px;
+        }
+        ul li:first-child::before, ul li:last-child::before{
+            display: none;
+        }
+        textarea{
+            height: 200px
+        }
+        ul.date li:before{
+            content: '/';
+        }
+        ul.date li:last-child::before{
+            display: inline;
+        }
+        .btn-view{
+            background-color: lightgrey;
+            color: #000;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>Take a Diary</h1>
+        </div>
+        <div class="time">
+            <ul class="date">
+                <li id="date"></li>
+                <li id="month"></li>
+                <li id="year"></li>
+            </ul>
+            <ul>
+                <li id="hours"></li>
+                <li id="minutes"></li>
+                <li id="seconds"></li>
+                <li id="meridian"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <form>
+            <div class="group">
+                <input type="text" required="required" id="title" /><span class="highlight"></span><span class="bar"></span>
+                <label>Title</label>
+            </div>
+            <div class="group">
+                <textarea required="required" rows="3" id="description"></textarea><span class="highlight"></span><span class="bar"></span>
+                <label>Description</label>
+            </div>
+            <div class="btn-box">
+                <button class="btn btn-submit" type="submit" id="submit">submit</button>
+                <button class="btn btn-view" id="viewApp">View Old Dairy</button>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" src="./scripts/timer.js"></script>
+    <script type="text/javascript" src="./scripts/validate.js"></script>
+</body>
+</html>
